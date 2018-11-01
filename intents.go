@@ -52,6 +52,7 @@ func (ir *IntentRouter) ProcessRequest(bot *Bot, glipPostEventInfo *GlipPostEven
 		" ",
 	)
 
+Commands:
 	for _, tryCmdLc := range tryCmdsLc {
 		matched := false
 		for _, intent := range ir.Intents {
@@ -62,6 +63,7 @@ func (ir *IntentRouter) ProcessRequest(bot *Bot, glipPostEventInfo *GlipPostEven
 						evtResp, err := intent.HandleIntent(bot, map[string]string{}, glipPostEventInfo)
 						if err == nil {
 							intentResponses = append(intentResponses, evtResp)
+							break Commands
 						}
 					}
 				}
@@ -75,6 +77,7 @@ func (ir *IntentRouter) ProcessRequest(bot *Bot, glipPostEventInfo *GlipPostEven
 						evtResp, err := intent.HandleIntent(bot, resMss, glipPostEventInfo)
 						if err == nil {
 							intentResponses = append(intentResponses, evtResp)
+							break Commands
 						}
 					}
 				}
