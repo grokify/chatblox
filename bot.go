@@ -316,8 +316,8 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	log.Info(fmt.Sprintf("Poster [%v][%v]", name, email))
 
 	log.Info(fmt.Sprintf("TEXT_PREP [%v]", glipPostEvent.Text))
-	text := ru.StripAtMention(bot.BotConfig.RingCentralBotId, glipPostEvent.Text)
-	text = ru.StripAtMentionAll(bot.BotConfig.RingCentralBotId,
+	//text := ru.StripAtMention(bot.BotConfig.RingCentralBotId, glipPostEvent.Text)
+	text := ru.StripAtMentionAll(bot.BotConfig.RingCentralBotId,
 		bot.BotConfig.RingCentralBotName,
 		glipPostEvent.Text)
 	texts := regexp.MustCompile(`[,\n]`).Split(strings.ToLower(text), -1)

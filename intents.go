@@ -49,8 +49,7 @@ func (ir *IntentRouter) ProcessRequest(bot *Bot, glipPostEventInfo *GlipPostEven
 	tryCmdsLc := stringsutil.SliceCondenseRegexps(
 		glipPostEventInfo.TryCommandsLc,
 		regexps,
-		" ",
-	)
+		" ")
 
 Commands:
 	for _, tryCmdLc := range tryCmdsLc {
