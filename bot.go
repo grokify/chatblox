@@ -334,6 +334,20 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	return evtResp, err
 }
 
+/*
+func (bot *Bot) SendGlipPosts(glipPostEventInfo *GlipPostEventInfo, reqBodies []rc.GlipCreatePost) (*hum.ResponseInfo, error) {
+	res := &hum.ResponseInfo{}
+	var err error
+
+	for _, reqBody := range reqBodies {
+		res, err = bot.SendGlipPost(GlipPostEventInfo, reqBody)
+		if err != nil {
+			return res, err
+		}
+	}
+	return res, err
+}
+*/
 func (bot *Bot) SendGlipPost(glipPostEventInfo *GlipPostEventInfo, reqBody rc.GlipCreatePost) (*hum.ResponseInfo, error) {
 	if bot.BotConfig.BotbloxResponseAutoAtMention && glipPostEventInfo.GroupMemberCount > 2 {
 		atMentionId := strings.TrimSpace(glipPostEventInfo.PostEvent.CreatorId)
