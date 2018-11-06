@@ -10,6 +10,7 @@ import (
 
 	rc "github.com/grokify/go-ringcentral/client"
 	ru "github.com/grokify/go-ringcentral/clientutil"
+	"github.com/grokify/gotilla/config"
 	om "github.com/grokify/oauth2more"
 	gu "github.com/grokify/oauth2more/google"
 	log "github.com/sirupsen/logrus"
@@ -47,6 +48,11 @@ type BotConfig struct {
 	AlgoliaIndex                      string `env:"ALGOLIA_INDEX"`
 }
 
+func (ac *BotConfig) Inflate() {
+	ac.RingCentralToken = config.JoinEnvNumbered("RINGCENTRAL_TOKEN", "", 2, true)
+	log.Info(fmt.Sprintf("TOKEN_TOKEN_TOKEN [%v]\n", ac.RingCentralToken))
+}
+
 func (ac *BotConfig) AppendPostSuffix(s string) string {
 	suffix := strings.TrimSpace(ac.BotbloxPostSuffix)
 	if len(suffix) > 0 {
@@ -70,6 +76,7 @@ func GetAlgoliaApiClient(botConfig BotConfig) (algoliasearch.Client, error) {
 }
 
 func GetRingCentralApiClient(botConfig BotConfig) (*rc.APIClient, error) {
+	botConfig.Inflate()
 	//fmt.Println(botConfig.RingCentralTokenJSON)
 	/*
 		rcHttpClient, err := om.NewClientTokenJSON(
