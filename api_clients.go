@@ -8,14 +8,15 @@ import (
 	"net/http"
 	"strings"
 
-	rc "github.com/grokify/go-ringcentral/client"
-	ru "github.com/grokify/go-ringcentral/clientutil"
-	"github.com/grokify/gotilla/config"
-	om "github.com/grokify/oauth2more"
-	gu "github.com/grokify/oauth2more/google"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
+	om "github.com/grokify/goauth"
+	gu "github.com/grokify/goauth/google"
+	"github.com/grokify/mogo/config"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/algolia/algoliasearch-client-go/algoliasearch"
+	// "github.com/algolia/algoliasearch-client-go/algoliasearch"
+	algoliasearch "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
 	"github.com/grokify/algoliautil"
 
 	"github.com/grokify/googleutil/sheetsutil/v4/sheetsmap"
@@ -66,11 +67,11 @@ func (ac *BotConfig) Quote(s string) string {
 
 }
 
-func GetAlgoliaApiClient(botConfig BotConfig) (algoliasearch.Client, error) {
-	client, err := algoliautil.NewClientFromJSONSearchOrAdmin(
+func GetAlgoliaApiClient(botConfig BotConfig) (*algoliasearch.Client, error) {
+	client, err := algoliautil.NewClientJSON(
 		[]byte(botConfig.AlgoliaAppCredentialsJSON))
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 	return client, nil
 }
@@ -87,7 +88,7 @@ func GetRingCentralApiClient(botConfig BotConfig) (*rc.APIClient, error) {
 		return nil, errors.New("E_NO_RINGCENTRAL_TOKEN")
 	}
 	rcHttpClient := om.NewClientToken(
-		om.BearerPrefix,
+		om.TokenBearer,
 		botConfig.RingCentralToken,
 		false)
 	/*

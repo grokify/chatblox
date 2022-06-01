@@ -6,10 +6,12 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/grokify/goauth/credentials"
+	ro "github.com/grokify/goauth/ringcentral"
+	"github.com/grokify/gohttp/anyhttp"
 	"github.com/grokify/gostor"
-	"github.com/grokify/gotilla/net/anyhttp"
-	ro "github.com/grokify/oauth2more/ringcentral"
 	log "github.com/sirupsen/logrus"
+	"golang.org/x/oauth2"
 )
 
 const (
@@ -18,19 +20,19 @@ const (
 
 type RcOAuthManager struct {
 	client       *http.Client
-	appCreds     ro.ApplicationCredentials
+	appCreds     credentials.CredentialsOAuth2
 	gostorClient gostor.Client
 	TokenPrefix  string
 }
 
-func NewRcOAuthManager(client *http.Client, appCreds ro.ApplicationCredentials) RcOAuthManager {
+func NewRcOAuthManager(client *http.Client, appCreds credentials.CredentialsOAuth2) RcOAuthManager {
 	return RcOAuthManager{
 		client:   client,
 		appCreds: appCreds}
 }
 
-func (h RcOAuthManager) HandleOAuthNetHttp(res http.ResponseWriter, req *http.Request) {
-	h.HandleOAuthAny(anyhttp.NewResReqNetHttp(res, req))
+func (h RcOAuthManager) HandleOAuthNetHTTP(res http.ResponseWriter, req *http.Request) {
+	h.HandleOAuthAny(anyhttp.NewResReqNetHTTP(res, req))
 }
 
 func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Request) {
@@ -56,12 +58,14 @@ func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Reque
 	fmt.Printf("%v\n", rcToken)
 	//authEndpoints := ru.NewEndpoint()
 
-	rcBotTokenKey := "rcBotId-" + rcToken.OwnerID
+	ownerId := rcToken.Extra("owner_id").(string)
+
+	rcBotTokenKey := "rcBotId-" + ownerId //  rcToken.OwnerID
 
 	h.StoreToken(rcBotTokenKey, *rcToken)
 }
 
-func (h RcOAuthManager) StoreToken(key string, rcToken ro.RcToken) error {
+func (h RcOAuthManager) StoreToken(key string, rcToken oauth2.Token) error {
 	data, err := json.Marshal(rcToken)
 	if err != nil {
 		return err
