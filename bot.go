@@ -54,7 +54,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 
 	log.Info(fmt.Sprintf("BOT_ID: %v", bot.BotConfig.RingCentralBotId))
 
-	rcApiClient, err := GetRingCentralApiClient(botCfg)
+	rcApiClient, err := GetRingCentralAPIClient(botCfg)
 	if err != nil {
 		log.Info(fmt.Sprintf("Initialize Error: RC Client: %v", err.Error()))
 		return hum.ResponseInfo{
@@ -76,7 +76,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 		bot.GoogleClient = googHttpClient
 
 		sm, err := GetSheetsMap(googHttpClient,
-			bot.BotConfig.GoogleSpreadsheetId,
+			bot.BotConfig.GoogleSpreadsheetID,
 			bot.BotConfig.GoogleSheetTitleRecords)
 		if err != nil {
 			log.Info(fmt.Sprintf("Initialize Error: Google Sheets: %v", err.Error()))
@@ -88,7 +88,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 		bot.SheetsMap = sm
 
 		sm2, err := GetSheetsMap(googHttpClient,
-			bot.BotConfig.GoogleSpreadsheetId,
+			bot.BotConfig.GoogleSpreadsheetID,
 			bot.BotConfig.GoogleSheetTitleMetadata)
 		if err != nil {
 			log.Info(fmt.Sprintf("Initialize Error: Google Sheets: %v", err.Error()))

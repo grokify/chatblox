@@ -42,7 +42,7 @@ type BotConfig struct {
 	RingCentralBotId                  string `env:"RINGCENTRAL_BOT_ID"`
 	RingCentralBotName                string `env:"RINGCENTRAL_BOT_NAME"`
 	GoogleSvcAccountJWT               string `env:"GOOGLE_SERVICE_ACCOUNT_JWT"`
-	GoogleSpreadsheetId               string `env:"GOOGLE_SPREADSHEET_ID"`
+	GoogleSpreadsheetID               string `env:"GOOGLE_SPREADSHEET_ID"`
 	GoogleSheetTitleRecords           string `env:"GOOGLE_SHEET_TITLE_RECORDS"`
 	GoogleSheetTitleMetadata          string `env:"GOOGLE_SHEET_TITLE_METADATA"`
 	AlgoliaAppCredentialsJSON         string `env:"ALGOLIA_APP_CREDENTIALS_JSON"`
@@ -64,10 +64,9 @@ func (ac *BotConfig) AppendPostSuffix(s string) string {
 
 func (ac *BotConfig) Quote(s string) string {
 	return ac.BotbloxCharQuoteLeft + strings.TrimSpace(s) + ac.BotbloxCharQuoteRight
-
 }
 
-func GetAlgoliaApiClient(botConfig BotConfig) (*algoliasearch.Client, error) {
+func GetAlgoliaAPIClient(botConfig BotConfig) (*algoliasearch.Client, error) {
 	client, err := algoliautil.NewClientJSON(
 		[]byte(botConfig.AlgoliaAppCredentialsJSON))
 	if err != nil {
@@ -76,7 +75,7 @@ func GetAlgoliaApiClient(botConfig BotConfig) (*algoliasearch.Client, error) {
 	return client, nil
 }
 
-func GetRingCentralApiClient(botConfig BotConfig) (*rc.APIClient, error) {
+func GetRingCentralAPIClient(botConfig BotConfig) (*rc.APIClient, error) {
 	botConfig.Inflate()
 	//fmt.Println(botConfig.RingCentralTokenJSON)
 	/*
