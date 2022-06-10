@@ -8,13 +8,13 @@ require (
 	github.com/caarlos0/env/v6 v6.9.3
 	github.com/grokify/algoliautil v0.1.0
 	github.com/grokify/go-ringcentral-client v0.3.6
-	github.com/grokify/goauth v0.14.4
+	github.com/grokify/goauth v0.15.2
 	github.com/grokify/gohttp v0.2.1
 	github.com/grokify/googleutil v0.1.10
 	github.com/grokify/gostor v0.2.1
-	github.com/grokify/mogo v0.39.6
+	github.com/grokify/mogo v0.39.8
 	github.com/sirupsen/logrus v1.8.1
-	golang.org/x/oauth2 v0.0.0-20220524215830-622c5d57e401
+	golang.org/x/oauth2 v0.0.0-20220608161450-d0670ef3b1eb
 	google.golang.org/api v0.83.0
 )
 
