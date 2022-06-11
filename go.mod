@@ -7,14 +7,14 @@ require (
 	github.com/aws/aws-lambda-go v1.32.0
 	github.com/caarlos0/env/v6 v6.9.3
 	github.com/grokify/algoliautil v0.1.0
-	github.com/grokify/go-ringcentral-client v0.3.6
-	github.com/grokify/goauth v0.14.4
+	github.com/grokify/go-ringcentral-client v0.3.7
+	github.com/grokify/goauth v0.15.2
 	github.com/grokify/gohttp v0.2.1
 	github.com/grokify/googleutil v0.1.10
 	github.com/grokify/gostor v0.2.1
-	github.com/grokify/mogo v0.39.6
+	github.com/grokify/mogo v0.39.8
 	github.com/sirupsen/logrus v1.8.1
-	golang.org/x/oauth2 v0.0.0-20220524215830-622c5d57e401
+	golang.org/x/oauth2 v0.0.0-20220608161450-d0670ef3b1eb
 	google.golang.org/api v0.83.0
 )
 
@@ -32,7 +32,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/googleapis/gax-go/v2 v2.4.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
-	github.com/grokify/go-scim-client v0.1.5 // indirect
+	github.com/grokify/go-scim-client v0.1.7 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -43,7 +43,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.35.0 // indirect
+	github.com/valyala/fasthttp v1.37.0 // indirect
 	github.com/valyala/fastjson v1.6.3 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e // indirect
