@@ -10,7 +10,7 @@ require (
 	github.com/grokify/go-ringcentral-client v0.3.7
 	github.com/grokify/goauth v0.15.2
 	github.com/grokify/gohttp v0.2.1
-	github.com/grokify/googleutil v0.1.10
+	github.com/grokify/googleutil v0.1.11
 	github.com/grokify/gostor v0.2.1
 	github.com/grokify/mogo v0.39.8
 	github.com/sirupsen/logrus v1.8.1
@@ -20,7 +20,7 @@ require (
 
 require (
 	cloud.google.com/go/compute v1.6.1 // indirect
-	github.com/Iwark/spreadsheet v0.0.0-20220228050401-3cb9c630d9f1 // indirect
+	github.com/Iwark/spreadsheet v0.0.0-20220412131121-41eea1483964 // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apex/gateway v1.1.2 // indirect
@@ -51,7 +51,7 @@ require (
 	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220602131408-e326c6e8e9c8 // indirect
+	google.golang.org/genproto v0.0.0-20220608133413-ed9918b62aac // indirect
 	google.golang.org/grpc v1.47.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 )
