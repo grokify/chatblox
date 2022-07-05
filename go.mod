@@ -3,7 +3,7 @@ module github.com/grokify/chatblox
 go 1.18
 
 require (
-	github.com/algolia/algoliasearch-client-go/v3 v3.25.0
+	github.com/algolia/algoliasearch-client-go/v3 v3.26.0
 	github.com/aws/aws-lambda-go v1.32.1
 	github.com/caarlos0/env/v6 v6.9.3
 	github.com/grokify/algoliautil v0.1.0
