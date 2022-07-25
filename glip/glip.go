@@ -3,6 +3,7 @@ package glip
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -10,7 +11,6 @@ import (
 	ro "github.com/grokify/goauth/ringcentral"
 	"github.com/grokify/gohttp/anyhttp"
 	"github.com/grokify/gostor"
-	log "github.com/sirupsen/logrus"
 	"golang.org/x/oauth2"
 )
 
@@ -38,21 +38,21 @@ func (h RcOAuthManager) HandleOAuthNetHTTP(res http.ResponseWriter, req *http.Re
 func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Request) {
 	err := aReq.ParseForm()
 	if err != nil {
-		log.Warn("E_CANNOT_PARSE_RC_OAUTH_FORM")
+		log.Print("E_CANNOT_PARSE_RC_OAUTH_FORM") // Warn
 		return
 	}
 	args := aReq.QueryArgs()
 	code := strings.TrimSpace(args.GetString("code"))
 
 	if len(code) == 0 {
-		log.Warn("E_RC_OAUTH_FORM__NO_CODE")
+		log.Print("E_RC_OAUTH_FORM__NO_CODE") // Warn
 		return
 	}
 
-	log.Info(">>>CODE>>>\n" + code + "\n<<<CODE<<<\n")
+	log.Print(">>>CODE>>>\n" + code + "\n<<<CODE<<<\n")
 	rcToken, err := h.appCreds.Exchange(code)
 	if err != nil {
-		log.Warn("E_CANNOT_EXCHANGE_CODE_FOR_TOKEN")
+		log.Print("E_CANNOT_EXCHANGE_CODE_FOR_TOKEN") // Warn
 		return
 	}
 	fmt.Printf("%v\n", rcToken)

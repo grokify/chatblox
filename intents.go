@@ -2,6 +2,7 @@ package chatblox
 
 import (
 	"fmt"
+	"log"
 	"regexp"
 	"strings"
 
@@ -9,7 +10,6 @@ import (
 	hum "github.com/grokify/mogo/net/httputilmore"
 	"github.com/grokify/mogo/regexp/regexputil"
 	"github.com/grokify/mogo/type/stringsutil"
-	log "github.com/sirupsen/logrus"
 )
 
 /*
@@ -67,12 +67,12 @@ Commands:
 					}
 				}
 			} else if intent.Type == MatchRegexpCapture {
-				log.Info("TRY_CMD_REGEXP_CAPTURE_MULTI_USER")
+				log.Print("TRY_CMD_REGEXP_CAPTURE_MULTI_USER")
 				for _, try := range intent.Regexps {
 					resMss := regexputil.FindStringSubmatchNamedMap(try, tryCmdLc)
 					if len(resMss) > 0 {
 						matched = true
-						log.Info(fmt.Sprintf("TRY_CMD_REGEXP_CAPTURE_MULTI_USER__MATCH_TRUE [%v]", resMss))
+						log.Print(fmt.Sprintf("TRY_CMD_REGEXP_CAPTURE_MULTI_USER__MATCH_TRUE [%v]", resMss))
 						evtResp, err := intent.HandleIntent(bot, resMss, glipPostEventInfo)
 						if err == nil {
 							intentResponses = append(intentResponses, evtResp)
@@ -94,7 +94,7 @@ Commands:
 	)
 
 	if len(tryCmdsNotMatched) > 0 {
-		log.Info("TRY_CMDS_NOT_MATCHED " + jsonutil.MustMarshalString(tryCmdsNotMatched, true))
+		log.Print("TRY_CMDS_NOT_MATCHED " + jsonutil.MustMarshalString(tryCmdsNotMatched, true))
 		glipPostEventInfo.TryCommandsLc = tryCmdsNotMatched
 		for _, intent := range ir.Intents {
 			if intent.Type == MatchAny {
@@ -117,7 +117,7 @@ func (ir *IntentRouter) ProcessRequestSingle(bot *Bot, textNoBotMention string, 
 				}
 			}
 		} else if intent.Type == MatchRegexpCapture {
-			log.Info("TRY_CMD_REGEXP_CAPTURE_SINGLE_USER")
+			log.Print("TRY_CMD_REGEXP_CAPTURE_SINGLE_USER")
 			for _, try := range intent.Regexps {
 				resMss := regexputil.FindStringSubmatchNamedMap(try, textNoBotMentionLc)
 				if len(resMss) > 0 {

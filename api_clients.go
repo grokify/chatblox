@@ -3,8 +3,8 @@ package chatblox
 import (
 	"context"
 	"errors"
-
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -13,7 +13,6 @@ import (
 	om "github.com/grokify/goauth"
 	gu "github.com/grokify/goauth/google"
 	"github.com/grokify/mogo/config"
-	log "github.com/sirupsen/logrus"
 
 	// "github.com/algolia/algoliasearch-client-go/algoliasearch"
 	algoliasearch "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
@@ -51,7 +50,7 @@ type BotConfig struct {
 
 func (ac *BotConfig) Inflate() {
 	ac.RingCentralToken = config.JoinEnvNumbered("RINGCENTRAL_TOKEN", "", 2, true)
-	log.Info(fmt.Sprintf("TOKEN_TOKEN_TOKEN [%v]\n", ac.RingCentralToken))
+	log.Printf("TOKEN_TOKEN_TOKEN [%v]\n", ac.RingCentralToken)
 }
 
 func (ac *BotConfig) AppendPostSuffix(s string) string {

@@ -2,9 +2,8 @@ package chatblox
 
 import (
 	"fmt"
+	"log"
 	"net/http"
-
-	log "github.com/sirupsen/logrus"
 )
 
 func ServeNetHttp(intentRouter IntentRouter, mux *http.ServeMux) {
@@ -16,6 +15,6 @@ func ServeNetHttp(intentRouter IntentRouter, mux *http.ServeMux) {
 	mux.HandleFunc("/webhook", http.HandlerFunc(bot.HandleNetHTTP))
 	mux.HandleFunc("/webhook/", http.HandlerFunc(bot.HandleNetHTTP))
 
-	log.Info(fmt.Sprintf("Starting server on port [%v]", bot.BotConfig.Port))
+	log.Printf("Starting server on port [%v]", bot.BotConfig.Port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", bot.BotConfig.Port), mux))
 }
