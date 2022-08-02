@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.26.0
-	github.com/aws/aws-lambda-go v1.34.0
+	github.com/aws/aws-lambda-go v1.34.1
 	github.com/caarlos0/env/v6 v6.9.3
 	github.com/grokify/algoliautil v0.1.0
 	github.com/grokify/go-ringcentral-client v0.3.7
