@@ -8,7 +8,7 @@ require (
 	github.com/caarlos0/env/v6 v6.10.0
 	github.com/grokify/algoliautil v0.1.1
 	github.com/grokify/go-ringcentral-client v0.3.8
-	github.com/grokify/goauth v0.16.0
+	github.com/grokify/goauth v0.16.2
 	github.com/grokify/gohttp v0.2.1
 	github.com/grokify/googleutil v0.1.12
 	github.com/grokify/gostor v0.2.1
