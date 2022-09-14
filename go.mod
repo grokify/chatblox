@@ -14,7 +14,7 @@ require (
 	github.com/grokify/gostor v0.2.1
 	github.com/grokify/mogo v0.40.4
 	golang.org/x/oauth2 v0.0.0-20220822191816-0ebed06d0094
-	google.golang.org/api v0.94.0
+	google.golang.org/api v0.96.0
 )
 
 require (
@@ -48,7 +48,7 @@ require (
 	github.com/valyala/fastjson v1.6.3 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
-	golang.org/x/net v0.0.0-20220822230855-b0a4917ee28c // indirect
+	golang.org/x/net v0.0.0-20220909164309-bea034e7d591 // indirect
 	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
