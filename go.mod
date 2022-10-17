@@ -9,7 +9,7 @@ require (
 	github.com/grokify/algoliautil v0.1.1
 	github.com/grokify/go-ringcentral-client v0.3.8
 	github.com/grokify/goauth v0.16.2
-	github.com/grokify/gohttp v0.2.1
+	github.com/grokify/gohttp v0.2.2
 	github.com/grokify/googleutil v0.1.12
 	github.com/grokify/gostor v0.2.1
 	github.com/grokify/mogo v0.40.4
@@ -44,7 +44,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.39.0 // indirect
+	github.com/valyala/fasthttp v1.40.0 // indirect
 	github.com/valyala/fastjson v1.6.3 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
