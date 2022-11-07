@@ -322,7 +322,7 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 		glipPostEvent.Text)
 	texts := regexp.MustCompile(`[,\n]`).Split(strings.ToLower(text), -1)
 	log.Print("TEXTS_1 " + jsonutil.MustMarshalString(texts, true))
-	log.Print("TEXTS_2 " + jsonutil.MustMarshalString(stringsutil.SliceTrimSpace(texts), true))
+	log.Print("TEXTS_2 " + jsonutil.MustMarshalString(stringsutil.SliceTrimSpace(texts, true), true))
 
 	postEventInfo := GlipPostEventInfo{
 		PostEvent:        glipPostEvent,
