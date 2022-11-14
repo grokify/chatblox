@@ -7,14 +7,14 @@ require (
 	github.com/aws/aws-lambda-go v1.34.1
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/grokify/algoliautil v0.1.1
-	github.com/grokify/go-ringcentral-client v0.3.8
-	github.com/grokify/goauth v0.16.4
+	github.com/grokify/go-ringcentral-client v0.3.9
+	github.com/grokify/goauth v0.16.5
 	github.com/grokify/gohttp v0.2.2
 	github.com/grokify/googleutil v0.1.14
 	github.com/grokify/gostor v0.2.1
-	github.com/grokify/mogo v0.40.13
-	golang.org/x/oauth2 v0.1.0
-	google.golang.org/api v0.102.0
+	github.com/grokify/mogo v0.41.1
+	golang.org/x/oauth2 v0.2.0
+	google.golang.org/api v0.103.0
 )
 
 require (
@@ -34,7 +34,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.2.0 // indirect
 	github.com/googleapis/gax-go/v2 v2.7.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
-	github.com/grokify/go-scim-client v0.1.9 // indirect
+	github.com/grokify/go-scim-client v0.1.10 // indirect
 	github.com/huandu/xstrings v1.3.3 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -48,9 +48,10 @@ require (
 	github.com/valyala/fasthttp v1.41.0 // indirect
 	github.com/valyala/fastjson v1.6.3 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/crypto v0.1.0 // indirect
-	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/crypto v0.2.0 // indirect
+	golang.org/x/exp v0.0.0-20221111204811-129d8d6c17ab // indirect
+	golang.org/x/net v0.2.0 // indirect
+	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c // indirect
