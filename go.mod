@@ -4,17 +4,17 @@ go 1.18
 
 require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.26.1
-	github.com/aws/aws-lambda-go v1.34.1
+	github.com/aws/aws-lambda-go v1.35.0
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/grokify/algoliautil v0.1.1
 	github.com/grokify/go-ringcentral-client v0.3.8
-	github.com/grokify/goauth v0.16.4
+	github.com/grokify/goauth v0.16.6
 	github.com/grokify/gohttp v0.2.2
 	github.com/grokify/googleutil v0.1.14
-	github.com/grokify/gostor v0.2.1
-	github.com/grokify/mogo v0.40.13
-	golang.org/x/oauth2 v0.1.0
-	google.golang.org/api v0.102.0
+	github.com/grokify/gostor v0.2.2
+	github.com/grokify/mogo v0.41.6
+	golang.org/x/oauth2 v0.2.0
+	google.golang.org/api v0.103.0
 )
 
 require (
@@ -45,15 +45,16 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pquerna/ffjson v0.0.0-20190930134022-aa0246cd15f7 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.41.0 // indirect
+	github.com/valyala/fasthttp v1.42.0 // indirect
 	github.com/valyala/fastjson v1.6.3 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/crypto v0.1.0 // indirect
-	golang.org/x/net v0.1.0 // indirect
-	golang.org/x/sys v0.1.0 // indirect
+	golang.org/x/crypto v0.3.0 // indirect
+	golang.org/x/exp v0.0.0-20221126150942-6ab00d035af9 // indirect
+	golang.org/x/net v0.2.0 // indirect
+	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/text v0.4.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c // indirect
-	google.golang.org/grpc v1.50.1 // indirect
+	google.golang.org/genproto v0.0.0-20221118155620-16455021b5e6 // indirect
+	google.golang.org/grpc v1.51.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
