@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func ServeNetHttp(intentRouter IntentRouter, mux *http.ServeMux) {
+func ServeNetHTTP(intentRouter IntentRouter, mux *http.ServeMux) {
 	bot := Bot{}
 	bot.Initialize()
 	bot.IntentRouter = intentRouter

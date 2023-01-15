@@ -9,13 +9,13 @@ import (
 
 var intentRouter_ = IntentRouter{}
 
-func ServeAwsLambda(intentRouter IntentRouter) {
+func ServeAWSLambda(intentRouter IntentRouter) {
 	log.Print("serveAwsLambda_S1")
 	intentRouter_ = intentRouter
-	lambda.Start(HandleAwsLambda)
+	lambda.Start(HandleAWSLambda)
 }
 
-func HandleAwsLambda(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func HandleAWSLambda(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	log.Print("HandleAwsLambda_S1")
 	log.Printf("HandleAwsLambda_S2_req_body: %v", req.Body)
 
