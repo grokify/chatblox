@@ -59,9 +59,9 @@ func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Reque
 	fmt.Printf("%v\n", rcToken)
 	//authEndpoints := ru.NewEndpoint()
 
-	ownerId := rcToken.Extra("owner_id").(string)
+	ownerID := rcToken.Extra("owner_id").(string)
 
-	rcBotTokenKey := "rcBotId-" + ownerId //  rcToken.OwnerID
+	rcBotTokenKey := "rcBotId-" + ownerID //  rcToken.OwnerID
 
 	h.StoreToken(rcBotTokenKey, *rcToken)
 }
@@ -77,7 +77,7 @@ func (h RcOAuthManager) StoreToken(key string, rcToken oauth2.Token) error {
 func (h RcOAuthManager) GetToken(key string) (ro.RcToken, error) {
 	data := strings.TrimSpace(h.gostorClient.GetOrEmptyString(key))
 	if data == "" {
-		return ro.RcToken{}, fmt.Errorf("Could not find token for %s", key)
+		return ro.RcToken{}, fmt.Errorf("could not find token for key (%s)", key)
 	}
 	var tok ro.RcToken
 	return tok, json.Unmarshal([]byte(data), &tok)
@@ -85,7 +85,7 @@ func (h RcOAuthManager) GetToken(key string) (ro.RcToken, error) {
 
 /*
 func HandleNetHTTPRingCentralCodeToToken(res http.ResponseWriter, req *http.Request) {
-	reqBodyBytes, err := ioutil.ReadAll(req.Body)
+	reqBodyBytes, err := io.ReadAll(req.Body)
 	if err != nil {
 		log.Warn(err)
 	}

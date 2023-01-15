@@ -19,7 +19,7 @@ import (
 	"github.com/grokify/algoliautil"
 
 	"github.com/grokify/googleutil/sheetsutil/v4/sheetsmap"
-	"google.golang.org/api/sheets/v4"
+	sheets "google.golang.org/api/sheets/v4"
 )
 
 const (
@@ -38,7 +38,7 @@ type BotConfig struct {
 	RingCentralTokenJSON              string `env:"RINGCENTRAL_TOKEN_JSON"`
 	RingCentralServerURL              string `env:"RINGCENTRAL_SERVER_URL"`
 	RingCentralWebhookDefinitionJSON  string `env:"RINGCENTRAL_WEBHOOK_DEFINITION_JSON"`
-	RingCentralBotId                  string `env:"RINGCENTRAL_BOT_ID"`
+	RingCentralBotID                  string `env:"RINGCENTRAL_BOT_ID"`
 	RingCentralBotName                string `env:"RINGCENTRAL_BOT_NAME"`
 	GoogleSvcAccountJWT               string `env:"GOOGLE_SERVICE_ACCOUNT_JWT"`
 	GoogleSpreadsheetID               string `env:"GOOGLE_SPREADSHEET_ID"`
@@ -108,7 +108,7 @@ func GetRingCentralAPIClient(botConfig BotConfig) (*rc.APIClient, error) {
 func GetGoogleApiClient(botConfig BotConfig) (*http.Client, error) {
 	jwtString := botConfig.GoogleSvcAccountJWT
 	if len(jwtString) <= 0 {
-		return nil, fmt.Errorf("No JWT")
+		return nil, fmt.Errorf("no jwt")
 	}
 
 	return gu.NewClientFromJWTJSON(
@@ -118,8 +118,8 @@ func GetGoogleApiClient(botConfig BotConfig) (*http.Client, error) {
 		sheets.SpreadsheetsScope)
 }
 
-func GetSheetsMap(googClient *http.Client, spreadsheetId string, sheetTitle string) (sheetsmap.SheetsMap, error) {
-	sm, err := sheetsmap.NewSheetsMapTitle(googClient, spreadsheetId, sheetTitle)
+func GetSheetsMap(googClient *http.Client, spreadsheetID string, sheetTitle string) (sheetsmap.SheetsMap, error) {
+	sm, err := sheetsmap.NewSheetsMapTitle(googClient, spreadsheetID, sheetTitle)
 	if err != nil {
 		return sm, err
 	}

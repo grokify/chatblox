@@ -1,7 +1,6 @@
 package chatblox
 
 import (
-	"fmt"
 	"log"
 	"regexp"
 	"strings"
@@ -72,7 +71,7 @@ Commands:
 					resMss := regexputil.FindStringSubmatchNamedMap(try, tryCmdLc)
 					if len(resMss) > 0 {
 						matched = true
-						log.Print(fmt.Sprintf("TRY_CMD_REGEXP_CAPTURE_MULTI_USER__MATCH_TRUE [%v]", resMss))
+						log.Printf("TRY_CMD_REGEXP_CAPTURE_MULTI_USER__MATCH_TRUE [%v]", resMss)
 						evtResp, err := intent.HandleIntent(bot, resMss, glipPostEventInfo)
 						if err == nil {
 							intentResponses = append(intentResponses, evtResp)

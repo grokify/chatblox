@@ -4,14 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"regexp"
 	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/caarlos0/env/v6"
+	env "github.com/caarlos0/env/v6"
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	"github.com/grokify/googleutil/sheetsutil/v4/sheetsmap"
@@ -52,7 +52,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 	botCfg.BotbloxCharQuoteRight = CharQuoteRight
 	bot.BotConfig = botCfg
 
-	log.Printf("BOT_ID: %v", bot.BotConfig.RingCentralBotId)
+	log.Printf("BOT_ID: %v", bot.BotConfig.RingCentralBotID)
 
 	rcApiClient, err := GetRingCentralAPIClient(botCfg)
 	if err != nil {
@@ -204,7 +204,7 @@ func (bot *Bot) HandleNetHTTP(res http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	reqBodyBytes, err := ioutil.ReadAll(req.Body)
+	reqBodyBytes, err := io.ReadAll(req.Body)
 	if err != nil {
 		log.Print(err) // Warn
 	}
@@ -251,7 +251,7 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	if (glipPostEvent.EventType != "PostAdded" &&
 		glipPostEvent.EventType != "PostChanged") ||
 		glipPostEvent.Type != "TextMessage" ||
-		glipPostEvent.CreatorId == bot.BotConfig.RingCentralBotId {
+		glipPostEvent.CreatorId == bot.BotConfig.RingCentralBotID {
 
 		log.Print("POST_EVENT_TYPE_NOT_IN [PostAdded, TextMessage]")
 		return &hum.ResponseInfo{
@@ -260,15 +260,15 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 		}, nil
 	}
 
-	glipApiUtil := ru.GlipApiUtil{ApiClient: bot.RingCentralClient}
-	groupMemberCount, err := glipApiUtil.GlipGroupMemberCount(glipPostEvent.GroupId)
+	glipAPIUtil := ru.GlipApiUtil{ApiClient: bot.RingCentralClient}
+	groupMemberCount, err := glipAPIUtil.GlipGroupMemberCount(glipPostEvent.GroupId)
 	if err != nil {
 		groupMemberCount = -1
 	}
-	log.Print(fmt.Sprintf("GROUP_MEMBER_COUNT [%v]", groupMemberCount))
+	log.Printf("GROUP_MEMBER_COUNT [%v]", groupMemberCount)
 
 	info := ru.GlipInfoAtMentionOrGroupOfTwoInfo{
-		PersonId:       bot.BotConfig.RingCentralBotId,
+		PersonId:       bot.BotConfig.RingCentralBotID,
 		PersonName:     bot.BotConfig.RingCentralBotName,
 		FuzzyAtMention: bot.BotConfig.BotbloxRequestFuzzyAtMentionMatch,
 		AtMentions:     glipPostEvent.Mentions,
@@ -278,7 +278,7 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	log.Print("AT_MENTION_INPUT: " + string(jsonutil.MustMarshal(info, true)))
 	log.Print("CONFIG: " + string(jsonutil.MustMarshal(bot.BotConfig, true)))
 
-	atMentionedOrGroupOfTwo, err := glipApiUtil.AtMentionedOrGroupOfTwoFuzzy(info)
+	atMentionedOrGroupOfTwo, err := glipAPIUtil.AtMentionedOrGroupOfTwoFuzzy(info)
 
 	if err != nil {
 		log.Print("AT_MENTION_ERR: " + err.Error())
@@ -298,13 +298,13 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	creator, resp, err := bot.RingCentralClient.GlipApi.LoadPerson(
 		context.Background(), glipPostEvent.CreatorId)
 	if err != nil {
-		msg := fmt.Errorf("Glip API Load Person Error: %v", err.Error())
+		msg := fmt.Errorf("glip API Load Person Error (%v)", err.Error())
 		log.Print(msg.Error()) // Warn
 		return &hum.ResponseInfo{
 			StatusCode: http.StatusInternalServerError,
 			Body:       msg.Error()}, err
 	} else if resp.StatusCode >= 300 {
-		msg := fmt.Errorf("Glip API Status Error: %v", resp.StatusCode)
+		msg := fmt.Errorf("glip API Status Error (%v)", resp.StatusCode)
 		log.Print(msg.Error()) // Warn
 		return &hum.ResponseInfo{
 			StatusCode: http.StatusInternalServerError,
@@ -316,8 +316,8 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 	log.Printf("Poster [%v][%v]", name, email)
 
 	log.Printf("TEXT_PREP [%v]", glipPostEvent.Text)
-	//text := ru.StripAtMention(bot.BotConfig.RingCentralBotId, glipPostEvent.Text)
-	text := ru.StripAtMentionAll(bot.BotConfig.RingCentralBotId,
+	//text := ru.StripAtMention(bot.BotConfig.RingCentralBotID, glipPostEvent.Text)
+	text := ru.StripAtMentionAll(bot.BotConfig.RingCentralBotID,
 		bot.BotConfig.RingCentralBotName,
 		glipPostEvent.Text)
 	texts := regexp.MustCompile(`[,\n]`).Split(strings.ToLower(text), -1)
@@ -350,8 +350,8 @@ func (bot *Bot) SendGlipPosts(glipPostEventInfo *GlipPostEventInfo, reqBodies []
 */
 func (bot *Bot) SendGlipPost(glipPostEventInfo *GlipPostEventInfo, reqBody rc.GlipCreatePost) (*hum.ResponseInfo, error) {
 	if bot.BotConfig.BotbloxResponseAutoAtMention && glipPostEventInfo.GroupMemberCount > 2 {
-		atMentionId := strings.TrimSpace(glipPostEventInfo.PostEvent.CreatorId)
-		reqBody.Text = ru.PrefixAtMentionUnlessMentioned(atMentionId, reqBody.Text)
+		atMentionID := strings.TrimSpace(glipPostEventInfo.PostEvent.CreatorId)
+		reqBody.Text = ru.PrefixAtMentionUnlessMentioned(atMentionID, reqBody.Text)
 	}
 
 	reqBody.Text = bot.BotConfig.AppendPostSuffix(reqBody.Text)
@@ -360,14 +360,14 @@ func (bot *Bot) SendGlipPost(glipPostEventInfo *GlipPostEventInfo, reqBody rc.Gl
 		context.Background(), glipPostEventInfo.PostEvent.GroupId, reqBody,
 	)
 	if err != nil {
-		msg := fmt.Errorf("Cannot Create Post: [%v]", err.Error())
+		msg := fmt.Errorf("cannot create post: [%s]", err.Error())
 		log.Print(msg.Error()) // Warn
 		return &hum.ResponseInfo{
 			StatusCode: http.StatusInternalServerError,
 			Body:       "500 " + msg.Error(),
 		}, err
 	} else if resp.StatusCode >= 300 {
-		msg := fmt.Errorf("Cannot Create Post, API Status [%v]", resp.StatusCode)
+		msg := fmt.Errorf("cannot create post, API Status [%d]", resp.StatusCode)
 		log.Print(msg.Error()) // Warn
 		return &hum.ResponseInfo{
 			StatusCode: http.StatusInternalServerError,
