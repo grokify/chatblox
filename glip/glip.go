@@ -1,6 +1,7 @@
 package glip
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -50,7 +51,7 @@ func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Reque
 	}
 
 	log.Print(">>>CODE>>>\n" + code + "\n<<<CODE<<<\n")
-	rcToken, err := h.appCreds.Exchange(code)
+	rcToken, err := h.appCreds.Exchange(context.Background(), code, map[string][]string{})
 	if err != nil {
 		log.Print("E_CANNOT_EXCHANGE_CODE_FOR_TOKEN") // Warn
 		return
