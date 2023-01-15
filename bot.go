@@ -54,7 +54,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 
 	log.Printf("BOT_ID: %v", bot.BotConfig.RingCentralBotID)
 
-	rcApiClient, err := GetRingCentralAPIClient(botCfg)
+	rcAPIClient, err := GetRingCentralAPIClient(botCfg)
 	if err != nil {
 		log.Printf("Initialize Error: RC Client: %v", err.Error())
 		return hum.ResponseInfo{
@@ -62,10 +62,10 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 			Body:       fmt.Sprintf("Initialize Error: RC Client: %v", err.Error()),
 		}, err
 	}
-	bot.RingCentralClient = rcApiClient
+	bot.RingCentralClient = rcAPIClient
 
 	if 1 == 0 {
-		googHttpClient, err := GetGoogleApiClient(botCfg)
+		googHTTPClient, err := GetGoogleAPIClient(botCfg)
 		if err != nil {
 			log.Printf("Initialize Error: Google Client: %v", err.Error())
 			return hum.ResponseInfo{
@@ -73,9 +73,9 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 				Body:       fmt.Sprintf("Initialize Error: Google Client: %v", err.Error()),
 			}, err
 		}
-		bot.GoogleClient = googHttpClient
+		bot.GoogleClient = googHTTPClient
 
-		sm, err := GetSheetsMap(googHttpClient,
+		sm, err := GetSheetsMap(googHTTPClient,
 			bot.BotConfig.GoogleSpreadsheetID,
 			bot.BotConfig.GoogleSheetTitleRecords)
 		if err != nil {
@@ -87,7 +87,7 @@ func (bot *Bot) Initialize() (hum.ResponseInfo, error) {
 		}
 		bot.SheetsMap = sm
 
-		sm2, err := GetSheetsMap(googHttpClient,
+		sm2, err := GetSheetsMap(googHTTPClient,
 			bot.BotConfig.GoogleSpreadsheetID,
 			bot.BotConfig.GoogleSheetTitleMetadata)
 		if err != nil {
@@ -193,8 +193,8 @@ func (bot *Bot) HandleNetHTTP(res http.ResponseWriter, req *http.Request) {
 	}
 
 	if 1 == 0 {
-		rcApi := bot.RingCentralClient
-		info, _, err := rcApi.CompanySettingsApi.LoadAccount(context.Background(), "~")
+		rcAPI := bot.RingCentralClient
+		info, _, err := rcAPI.CompanySettingsApi.LoadAccount(context.Background(), "~")
 		if err != nil {
 			log.Print(err)
 		} else {
@@ -252,7 +252,6 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 		glipPostEvent.EventType != "PostChanged") ||
 		glipPostEvent.Type != "TextMessage" ||
 		glipPostEvent.CreatorId == bot.BotConfig.RingCentralBotID {
-
 		log.Print("POST_EVENT_TYPE_NOT_IN [PostAdded, TextMessage]")
 		return &hum.ResponseInfo{
 			StatusCode: http.StatusOK,
@@ -335,18 +334,18 @@ func (bot *Bot) ProcessEvent(reqBodyBytes []byte) (*hum.ResponseInfo, error) {
 }
 
 /*
-func (bot *Bot) SendGlipPosts(glipPostEventInfo *GlipPostEventInfo, reqBodies []rc.GlipCreatePost) (*hum.ResponseInfo, error) {
-	res := &hum.ResponseInfo{}
-	var err error
+	func (bot *Bot) SendGlipPosts(glipPostEventInfo *GlipPostEventInfo, reqBodies []rc.GlipCreatePost) (*hum.ResponseInfo, error) {
+		res := &hum.ResponseInfo{}
+		var err error
 
-	for _, reqBody := range reqBodies {
-		res, err = bot.SendGlipPost(GlipPostEventInfo, reqBody)
-		if err != nil {
-			return res, err
+		for _, reqBody := range reqBodies {
+			res, err = bot.SendGlipPost(GlipPostEventInfo, reqBody)
+			if err != nil {
+				return res, err
+			}
 		}
+		return res, err
 	}
-	return res, err
-}
 */
 func (bot *Bot) SendGlipPost(glipPostEventInfo *GlipPostEventInfo, reqBody rc.GlipCreatePost) (*hum.ResponseInfo, error) {
 	if bot.BotConfig.BotbloxResponseAutoAtMention && glipPostEventInfo.GroupMemberCount > 2 {

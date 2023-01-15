@@ -83,9 +83,9 @@ func GetRingCentralAPIClient(botConfig BotConfig) (*rc.APIClient, error) {
 			[]byte(botConfig.RingCentralTokenJSON))
 	*/
 	if len(strings.TrimSpace(botConfig.RingCentralToken)) <= 0 {
-		return nil, errors.New("E_NO_RINGCENTRAL_TOKEN")
+		return nil, errors.New("no ringcentral token")
 	}
-	rcHttpClient := om.NewClientToken(
+	rcHTTPClient := om.NewClientToken(
 		om.TokenBearer,
 		botConfig.RingCentralToken,
 		false)
@@ -101,11 +101,11 @@ func GetRingCentralAPIClient(botConfig BotConfig) (*rc.APIClient, error) {
 		}
 	*/
 	return ru.NewApiClientHttpClientBaseURL(
-		rcHttpClient, botConfig.RingCentralServerURL,
+		rcHTTPClient, botConfig.RingCentralServerURL,
 	)
 }
 
-func GetGoogleApiClient(botConfig BotConfig) (*http.Client, error) {
+func GetGoogleAPIClient(botConfig BotConfig) (*http.Client, error) {
 	jwtString := botConfig.GoogleSvcAccountJWT
 	if len(jwtString) <= 0 {
 		return nil, fmt.Errorf("no jwt")
