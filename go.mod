@@ -14,7 +14,7 @@ require (
 	github.com/grokify/gostor v0.2.2
 	github.com/grokify/mogo v0.45.0
 	golang.org/x/oauth2 v0.4.0
-	google.golang.org/api v0.107.0
+	google.golang.org/api v0.109.0
 )
 
 require (
