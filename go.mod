@@ -14,7 +14,7 @@ require (
 	github.com/grokify/gostor v0.2.2
 	github.com/grokify/mogo v0.46.0
 	golang.org/x/oauth2 v0.5.0
-	google.golang.org/api v0.109.0
+	google.golang.org/api v0.110.0
 )
 
 require (
@@ -29,7 +29,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/googleapis/enterprise-certificate-proxy v0.2.2 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
 	github.com/googleapis/gax-go/v2 v2.7.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grokify/go-scim-client v0.1.13 // indirect
