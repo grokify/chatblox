@@ -9,7 +9,7 @@ require (
 	github.com/grokify/algoliautil v0.1.3
 	github.com/grokify/go-ringcentral-client v0.3.12
 	github.com/grokify/goauth v0.17.5
-	github.com/grokify/gohttp v0.2.2
+	github.com/grokify/gohttp v0.2.3
 	github.com/grokify/googleutil v0.1.19
 	github.com/grokify/gostor v0.2.2
 	github.com/grokify/mogo v0.46.0
@@ -21,7 +21,7 @@ require (
 	cloud.google.com/go/compute v1.18.0 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	github.com/Iwark/spreadsheet v0.0.0-20220412131121-41eea1483964 // indirect
-	github.com/andybalholm/brotli v1.0.4 // indirect
+	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/antihax/optional v1.0.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.3 // indirect
