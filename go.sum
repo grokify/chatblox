@@ -87,8 +87,8 @@ github.com/grokify/googleutil v0.1.20 h1:uvS/6nId5yifFmg9taQA0DLNyWrK1wLEbu2IohD
 github.com/grokify/googleutil v0.1.20/go.mod h1:L1Ed+9WXGjJNhE0iD35IYUGm1gj5wFWe5RaVxBfgjJc=
 github.com/grokify/gostor v0.2.3 h1:rCMVSUfOk1bXEBQE+CC+72yvdBVVxefG0oVx+wD9Kw4=
 github.com/grokify/gostor v0.2.3/go.mod h1:aWr8JLBiygNSEKv03OXAIYmQU50NdZK5h4MJuDkDzic=
-github.com/grokify/mogo v0.47.0 h1:ccRNWzSx7taNYtZdnqi1sArLmgzXD96CNEYXq2lC3lk=
-github.com/grokify/mogo v0.47.0/go.mod h1:vvFTRKwQoOJdSwcloML+lHn4cAQ3xN8/iAXt4J7J7Gs=
+github.com/grokify/mogo v0.48.0 h1:UIqZP0BmejaI+HE2mkG7Go41DmcgBhkbeZcffbICB9c=
+github.com/grokify/mogo v0.48.0/go.mod h1:if065zyHzzrVbkdwCgBFRSGW43SoTaSOertfrfbLnvA=
 github.com/huandu/xstrings v1.4.0 h1:D17IlohoQq4UcpqD7fDk80P7l+lwAmlFaBHgOipl2FU=
 github.com/huandu/xstrings v1.4.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=

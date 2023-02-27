@@ -12,7 +12,7 @@ require (
 	github.com/grokify/gohttp v0.2.3
 	github.com/grokify/googleutil v0.1.20
 	github.com/grokify/gostor v0.2.3
-	github.com/grokify/mogo v0.47.0
+	github.com/grokify/mogo v0.48.0
 	golang.org/x/oauth2 v0.5.0
 	google.golang.org/api v0.110.0
 )
