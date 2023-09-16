@@ -10,7 +10,7 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	om "github.com/grokify/goauth"
+	"github.com/grokify/goauth/authutil"
 	gu "github.com/grokify/goauth/google"
 	"github.com/grokify/mogo/config"
 
@@ -85,8 +85,8 @@ func GetRingCentralAPIClient(botConfig BotConfig) (*rc.APIClient, error) {
 	if len(strings.TrimSpace(botConfig.RingCentralToken)) <= 0 {
 		return nil, errors.New("no ringcentral token")
 	}
-	rcHTTPClient := om.NewClientToken(
-		om.TokenBearer,
+	rcHTTPClient := authutil.NewClientToken(
+		authutil.TokenBearer,
 		botConfig.RingCentralToken,
 		false)
 	/*

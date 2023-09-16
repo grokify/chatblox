@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth"
 	ro "github.com/grokify/goauth/ringcentral"
 	"github.com/grokify/gohttp/anyhttp"
 	"github.com/grokify/gostor"
@@ -21,12 +21,12 @@ const (
 
 type RcOAuthManager struct {
 	client       *http.Client
-	appCreds     credentials.CredentialsOAuth2
+	appCreds     goauth.CredentialsOAuth2
 	gostorClient gostor.Client
 	TokenPrefix  string
 }
 
-func NewRcOAuthManager(client *http.Client, appCreds credentials.CredentialsOAuth2) RcOAuthManager {
+func NewRcOAuthManager(client *http.Client, appCreds goauth.CredentialsOAuth2) RcOAuthManager {
 	return RcOAuthManager{
 		client:   client,
 		appCreds: appCreds}
