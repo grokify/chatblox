@@ -1,9 +1,9 @@
 # Chatblox
 
 [![Build Status][build-status-svg]][build-status-url]
-[![Go Report Card][goreport-svg]][goreport-url]]
+[![Go Report Card][goreport-svg]][goreport-url]
 [![Docs][docs-godoc-svg]][docs-godoc-url]
-[![License][license-svg]][license-url]]
+[![License][license-svg]][license-url]
 
  [build-status-svg]: https://github.com/grokify/chatblox/workflows/test/badge.svg
  [build-status-url]: https://github.com/grokify/chatblox/actions
