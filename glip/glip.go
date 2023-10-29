@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	DefaultBotTokenPrefix = "rcBotExtId-"
+	DefaultBotTokenPrefix = "rcBotExtId-" // #nosec G101
 )
 
 type RcOAuthManager struct {

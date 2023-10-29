@@ -14,7 +14,7 @@ require (
 	github.com/grokify/gohttp v0.2.7
 	github.com/grokify/googleutil v0.1.26
 	github.com/grokify/gostor v0.2.7
-	github.com/grokify/mogo v0.58.0
+	github.com/grokify/mogo v0.59.0
 	golang.org/x/oauth2 v0.13.0
 	google.golang.org/api v0.148.0
 )
@@ -26,6 +26,7 @@ require (
 	github.com/andybalholm/brotli v1.0.6 // indirect
 	github.com/antihax/optional v1.0.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
+	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.0.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
@@ -58,3 +59,5 @@ require (
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/oleiade/reflections.v1 v1.0.0 // indirect
 )
+
+// replace github.com/grokify/mogo => ../mogo
