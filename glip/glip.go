@@ -63,7 +63,11 @@ func (h RcOAuthManager) HandleOAuthAny(aRes anyhttp.Response, aReq anyhttp.Reque
 
 	rcBotTokenKey := "rcBotId-" + ownerID //  rcToken.OwnerID
 
-	h.StoreToken(rcBotTokenKey, *rcToken)
+	err = h.StoreToken(rcBotTokenKey, *rcToken)
+	if err != nil {
+		log.Printf("cannot store token (%s)", err.Error()) // Warn
+		return
+	}
 }
 
 func (h RcOAuthManager) StoreToken(key string, rcToken oauth2.Token) error {

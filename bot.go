@@ -183,14 +183,12 @@ func (bot *Bot) HandleNetHTTP(res http.ResponseWriter, req *http.Request) {
 		log.Print(err) // Warn
 	}
 
-	if 1 == 1 {
-		err := req.ParseForm()
-		if err != nil {
-			log.Print(err) // Warn
-		}
-		log.Print("WEBHOOK_ACCOUNT_ID")
-		log.Print(req.FormValue("state"))
+	err = req.ParseForm()
+	if err != nil {
+		log.Print(err) // Warn
 	}
+	// log.Print("WEBHOOK_ACCOUNT_ID")
+	// log.Print(req.FormValue("state"))
 
 	if 1 == 0 {
 		rcAPI := bot.RingCentralClient
