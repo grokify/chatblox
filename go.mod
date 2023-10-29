@@ -2,7 +2,7 @@ module github.com/grokify/chatblox
 
 go 1.21
 
-toolchain go1.21.1
+// toolchain go1.21.1
 
 require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.31.0
