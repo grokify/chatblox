@@ -102,7 +102,11 @@ Commands:
 		}
 	}
 
-	return &hum.ResponseInfo{}, nil
+	if len(intentResponses) > 0 {
+		return intentResponses[0], nil
+	} else {
+		return nil, nil
+	}
 }
 
 func (ir *IntentRouter) ProcessRequestSingle(bot *Bot, textNoBotMention string, glipPostEventInfo *GlipPostEventInfo) (*hum.ResponseInfo, error) {
