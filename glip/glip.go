@@ -10,8 +10,8 @@ import (
 
 	"github.com/grokify/goauth"
 	ro "github.com/grokify/goauth/ringcentral"
-	"github.com/grokify/gohttp/anyhttp"
-	"github.com/grokify/gostor"
+	gostor "github.com/grokify/xgo/database/document"
+	"github.com/grokify/xgo/net/http/anyhttp"
 	"golang.org/x/oauth2"
 )
 
