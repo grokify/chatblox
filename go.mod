@@ -11,7 +11,7 @@ require (
 	github.com/grokify/algoliautil v0.1.6
 	github.com/grokify/go-ringcentral-client v0.3.18
 	github.com/grokify/goauth v0.20.9
-	github.com/grokify/googleutil v0.1.29
+	github.com/grokify/googleutil v0.2.0
 	github.com/grokify/mogo v0.62.7
 	github.com/grokify/xgo v0.7.3
 	golang.org/x/oauth2 v0.16.0
