@@ -6,14 +6,14 @@ go 1.21
 
 require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.31.0
-	github.com/aws/aws-lambda-go v1.44.0
+	github.com/aws/aws-lambda-go v1.45.0
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/grokify/algoliautil v0.1.6
 	github.com/grokify/go-ringcentral-client v0.3.18
 	github.com/grokify/goauth v0.20.9
 	github.com/grokify/googleutil v0.2.0
-	github.com/grokify/mogo v0.62.7
-	github.com/grokify/xgo v0.7.3
+	github.com/grokify/mogo v0.62.8
+	github.com/grokify/xgo v0.7.4
 	golang.org/x/oauth2 v0.16.0
 	google.golang.org/api v0.156.0
 )
@@ -51,7 +51,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.21.0 // indirect
 	go.opentelemetry.io/otel/trace v1.21.0 // indirect
 	golang.org/x/crypto v0.18.0 // indirect
-	golang.org/x/exp v0.0.0-20240112132812-db7319d0e0e3 // indirect
+	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a // indirect
 	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
