@@ -12,7 +12,7 @@ require (
 	github.com/grokify/go-ringcentral-client v0.3.18
 	github.com/grokify/goauth v0.20.9
 	github.com/grokify/googleutil v0.2.0
-	github.com/grokify/mogo v0.62.8
+	github.com/grokify/mogo v0.63.0
 	github.com/grokify/xgo v0.7.4
 	golang.org/x/oauth2 v0.16.0
 	google.golang.org/api v0.159.0
