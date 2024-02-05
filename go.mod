@@ -12,8 +12,8 @@ require (
 	github.com/grokify/go-ringcentral-client v0.3.19
 	github.com/grokify/goauth v0.20.10
 	github.com/grokify/googleutil v0.2.0
-	github.com/grokify/mogo v0.62.8
-	github.com/grokify/xgo v0.7.4
+	github.com/grokify/mogo v0.63.0
+	github.com/grokify/xgo v0.7.5
 	golang.org/x/oauth2 v0.16.0
 	google.golang.org/api v0.161.0
 )
@@ -39,7 +39,7 @@ require (
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.17.4 // indirect
+	github.com/klauspost/compress v1.17.5 // indirect
 	github.com/martinlindhe/base36 v1.1.1 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
