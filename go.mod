@@ -1,6 +1,7 @@
 module github.com/grokify/chatblox
 
 go 1.21
+toolchain go1.22.1
 
 // toolchain go1.21.1
 
@@ -12,7 +13,7 @@ require (
 	github.com/grokify/go-ringcentral-client v0.3.19
 	github.com/grokify/goauth v0.20.11
 	github.com/grokify/googleutil v0.2.0
-	github.com/grokify/mogo v0.63.1
+	github.com/grokify/mogo v0.63.2
 	github.com/grokify/xgo v0.7.5
 	golang.org/x/oauth2 v0.18.0
 	google.golang.org/api v0.161.0
@@ -51,14 +52,14 @@ require (
 	go.opentelemetry.io/otel/metric v1.22.0 // indirect
 	go.opentelemetry.io/otel/trace v1.22.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
-	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a // indirect
+	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240125205218-1f4bbc51befe // indirect
 	google.golang.org/grpc v1.61.0 // indirect
-	google.golang.org/protobuf v1.32.0 // indirect
+	google.golang.org/protobuf v1.33.0 // indirect
 )
 
 // replace github.com/grokify/mogo => ../mogo
