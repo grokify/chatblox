@@ -15,7 +15,7 @@ require (
 	github.com/grokify/mogo v0.63.8
 	github.com/grokify/sogo v0.8.0
 	golang.org/x/oauth2 v0.19.0
-	google.golang.org/api v0.175.0
+	google.golang.org/api v0.176.0
 )
 
 require (
