@@ -5,7 +5,7 @@ go 1.22.0
 toolchain go1.22.2
 
 require (
-	github.com/algolia/algoliasearch-client-go/v3 v3.31.1
+	github.com/algolia/algoliasearch-client-go/v3 v3.31.2
 	github.com/aws/aws-lambda-go v1.47.0
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/grokify/algoliautil v0.1.7
