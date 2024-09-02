@@ -1,9 +1,6 @@
 module github.com/grokify/chatblox
 
 go 1.22.0
-
-toolchain go1.22.2
-
 require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.31.2
 	github.com/aws/aws-lambda-go v1.47.0
@@ -13,7 +10,7 @@ require (
 	github.com/grokify/goauth v0.21.10
 	github.com/grokify/googleutil v0.3.0
 	github.com/grokify/mogo v0.64.10
-	github.com/grokify/sogo v0.8.9
+	github.com/grokify/sogo v0.8.10
 	golang.org/x/oauth2 v0.22.0
 	google.golang.org/api v0.195.0
 )
