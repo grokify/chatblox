@@ -8,7 +8,7 @@ require (
 	github.com/algolia/algoliasearch-client-go/v3 v3.31.2
 	github.com/aws/aws-lambda-go v1.47.0
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/grokify/algoliautil v0.1.8
+	github.com/grokify/algoliautil v0.1.9
 	github.com/grokify/go-ringcentral-client v0.3.23
 	github.com/grokify/goauth v0.22.0
 	github.com/grokify/googleutil v0.3.1
