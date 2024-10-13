@@ -8,17 +8,14 @@ import (
 	"net/http"
 	"strings"
 
+	algoliasearch "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
+	"github.com/grokify/algoliautil"
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	"github.com/grokify/goauth/authutil"
 	gu "github.com/grokify/goauth/google"
+	"github.com/grokify/gogoogle/sheetsutil/v4/sheetsmap"
 	"github.com/grokify/mogo/config"
-
-	// "github.com/algolia/algoliasearch-client-go/algoliasearch"
-	algoliasearch "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
-	"github.com/grokify/algoliautil"
-
-	"github.com/grokify/googleutil/sheetsutil/v4/sheetsmap"
 	sheets "google.golang.org/api/sheets/v4"
 )
 
