@@ -13,7 +13,7 @@ require (
 	github.com/grokify/goauth v0.22.1
 	github.com/grokify/gogoogle v0.4.0
 	github.com/grokify/mogo v0.65.3
-	github.com/grokify/sogo v0.8.11
+	github.com/grokify/sogo v0.8.13
 	golang.org/x/oauth2 v0.24.0
 	google.golang.org/api v0.200.0
 )
@@ -45,7 +45,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasthttp v1.56.0 // indirect
+	github.com/valyala/fasthttp v1.57.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.55.0 // indirect
 	go.opentelemetry.io/otel v1.31.0 // indirect
