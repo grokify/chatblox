@@ -12,7 +12,7 @@ require (
 	github.com/grokify/go-ringcentral-client v0.3.23
 	github.com/grokify/goauth v0.22.3
 	github.com/grokify/gogoogle v0.4.0
-	github.com/grokify/mogo v0.65.3
+	github.com/grokify/mogo v0.65.6
 	github.com/grokify/sogo v0.8.13
 	golang.org/x/oauth2 v0.24.0
 	google.golang.org/api v0.206.0
@@ -25,6 +25,7 @@ require (
 	github.com/Iwark/spreadsheet v0.0.0-20230915040305-7677e8164883 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/antihax/optional v1.0.0 // indirect
+	github.com/caarlos0/env/v11 v11.2.2 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
